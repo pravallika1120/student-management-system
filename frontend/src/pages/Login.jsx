@@ -45,7 +45,9 @@ function Login() {
 
         </div>
 
-        <button className="btn btn-primary w-100">
+        <button className="btn btn-primary w-100"
+                onClick={handleLogin}
+        >
           Login
         </button>
 
