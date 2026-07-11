@@ -29,6 +29,7 @@ function Login() {
 
       alert("Login Successful");
 
+      navigate("/dashboard");
 
     } catch(error) {
 
