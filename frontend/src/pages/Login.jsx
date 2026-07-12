@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"
 import API from "../api/studentApi";
 import "../styles/Login.css";
 
@@ -178,7 +179,17 @@ function Login() {
 
         </button>
 
+        <p className="mt-3">
 
+          New Student?
+
+          <Link to="/register">
+
+           Register Here
+
+          </Link>
+
+        </p>
 
       </div>
 
