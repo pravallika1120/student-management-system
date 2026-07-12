@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import StudentList from "./pages/StudentList";
 import AddStudent from "./pages/AddStudent";
 import EditStudent from "./pages/EditStudent";
+import Register from "./pages/Register";
 
 
 function App(){
@@ -39,7 +40,10 @@ function App(){
           path="/edit-student/:id"
           element={<EditStudent />}
         />
-
+        <Route
+         path="/register"
+         element={<Register/>}
+        />
       </Routes>
 
     </BrowserRouter>
