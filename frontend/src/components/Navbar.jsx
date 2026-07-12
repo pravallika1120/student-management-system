@@ -1,15 +1,28 @@
-function Navbar() {
-  return (
-    <nav className="navbar navbar-dark bg-primary px-4">
-      <span className="navbar-brand mb-0 h1">
-        🎓 Student Management System
-      </span>
+function Navbar(){
 
-      <div className="text-white">
-        Welcome, Admin
-      </div>
-    </nav>
-  );
+const name = localStorage.getItem("name");
+const role = localStorage.getItem("role");
+
+
+return(
+
+<nav className="navbar navbar-primary bg-primary text-white p-3">
+
+<h3>
+🎓 Student Management System
+</h3>
+
+
+<h4>
+Welcome, {role === "admin" ? "Admin" : name}
+</h4>
+
+
+</nav>
+
+);
+
 }
+
 
 export default Navbar;
