@@ -5,11 +5,10 @@ import API from "../api/studentApi";
 
 function Register(){
 
+const navigate = useNavigate();
 
-const navigate=useNavigate();
 
-
-const [user,setUser]=useState({
+const [user,setUser] = useState({
 
 name:"",
 email:"",
@@ -19,9 +18,7 @@ role:"student"
 });
 
 
-
 const handleChange=(e)=>{
-
 
 setUser({
 
@@ -31,19 +28,16 @@ setUser({
 
 });
 
-
 };
 
 
 
 const handleSubmit=async(e)=>{
 
-
 e.preventDefault();
 
 
 try{
-
 
 await API.post("/auth/register",user);
 
@@ -55,14 +49,19 @@ navigate("/");
 
 
 }
+
 catch(error){
+
+console.log(error);
 
 
 alert(
-error.response?.data?.message ||
-"Registration Failed"
-);
 
+error.response?.data?.message ||
+
+"Registration Failed"
+
+);
 
 }
 
@@ -71,11 +70,9 @@ error.response?.data?.message ||
 
 
 
-
 return(
 
 <div className="container mt-5">
-
 
 <div className="card shadow">
 
@@ -89,7 +86,6 @@ Student Registration
 </div>
 
 
-
 <div className="card-body">
 
 
@@ -101,6 +97,8 @@ Student Registration
 className="form-control mb-3"
 
 name="name"
+
+value={user.name}
 
 placeholder="Enter Name"
 
@@ -118,6 +116,8 @@ name="email"
 
 type="email"
 
+value={user.email}
+
 placeholder="Enter Email"
 
 onChange={handleChange}
@@ -134,6 +134,8 @@ name="password"
 
 type="password"
 
+value={user.password}
+
 placeholder="Enter Password"
 
 onChange={handleChange}
@@ -148,6 +150,8 @@ className="form-control mb-3"
 
 name="role"
 
+value={user.role}
+
 onChange={handleChange}
 
 >
@@ -156,13 +160,6 @@ onChange={handleChange}
 <option value="student">
 
 Student
-
-</option>
-
-
-<option value="admin">
-
-Admin
 
 </option>
 
@@ -189,9 +186,7 @@ Register
 
 </div>
 
-
 );
-
 
 }
 
