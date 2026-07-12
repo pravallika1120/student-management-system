@@ -368,13 +368,34 @@ Platform:
 
 # 📸 Screenshots
 
-Add project screenshots:
+## 🔐 Login Page
 
-- Login Page
-- Registration Page
-- Dashboard
-- Student List
-- Add Student Page
+![Login Page](Screenshots/Login.png)
+
+
+## 📝 Registration Page
+
+![Registration Page](Screenshots/Register.png)
+
+
+## 📊 Dashboard
+
+![Dashboard](Screenshots/Dashboard.png)
+
+
+## 👨‍🎓 Student List
+
+![Student List](Screenshots/StudentList.png)
+
+
+## ➕ Add Student
+
+![Add Student](Screenshots/AddStudents.png)
+
+
+## 👤 Profile Page
+
+![Profile](Screenshots/Profile.png)
 
 ---
 
