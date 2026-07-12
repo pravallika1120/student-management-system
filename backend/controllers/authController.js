@@ -117,7 +117,9 @@ const loginUser = async(req,res)=>{
 
             role:user.role,
 
-            email:user.email
+            email:user.email,
+
+            name:user.name
 
         });
 
