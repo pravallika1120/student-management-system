@@ -370,32 +370,32 @@ Platform:
 
 ## 🔐 Login Page
 
-![Login Page](Screenshots/Login.png)
+![Login Page](Login.png)
 
 
 ## 📝 Registration Page
 
-![Registration Page](Screenshots/Register.png)
+![Registration Page](Register.png)
 
 
 ## 📊 Dashboard
 
-![Dashboard](Screenshots/Dashboard.png)
+![Dashboard](Dashboard.png)
 
 
 ## 👨‍🎓 Student List
 
-![Student List](Screenshots/StudentList.png)
+![Student List](StudentList.png)
 
 
 ## ➕ Add Student
 
-![Add Student](Screenshots/AddStudents.png)
+![Add Student](AddStudents.png)
 
 
 ## 👤 Profile Page
 
-![Profile](Screenshots/Profile.png)
+![Profile](Profile.png)
 
 ---
 
