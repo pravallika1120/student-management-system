@@ -14,35 +14,42 @@ function Login() {
 
     try {
 
-      const response = await API.post("/auth/login", {
-        email,
-        password,
-        role
-      });
+        const response = await API.post("/auth/login", {
+            email,
+            password,
+            role
+        });
+
+        console.log("LOGIN RESPONSE:", response.data);
 
 
-      localStorage.setItem(
-        "token",
-        response.data.token
-      );
+        localStorage.setItem(
+            "token",
+            response.data.token
+        );
 
 
-      alert("Login Successful");
+        localStorage.setItem(
+            "role",
+            response.data.role
+        );
 
-      navigate("/dashboard");
+
+        alert("Login Successful");
+
 
     } catch(error) {
 
-      console.log(error);
+        console.log("LOGIN ERROR:", error);
 
-      alert(
-        error.response?.data?.message || 
-        "Login Failed"
-      );
+        alert(
+            error.response?.data?.message || 
+            "Login Failed"
+        );
 
     }
 
-  };
+};
 
 
   return (
