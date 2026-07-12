@@ -306,10 +306,10 @@ Displays user information.
 
 # 👩‍💻 Developed By
 
-**Gangi Satyanarayana
-Pravallika Uppalapati 
-Sai Prasanna Kampi
-Haripriya Uppicherla
+**Gangi Satyanarayana,
+Pravallika Uppalapati, 
+Sai Prasanna Kampi,
+Haripriya Uppicherla,
 Mohan Aakula**
 
 B.Tech 
