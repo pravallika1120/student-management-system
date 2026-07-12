@@ -9,7 +9,7 @@ The system provides user authentication, student registration, and student recor
 
 ## Frontend
 
-🔗 https://your-frontend-render-url.onrender.com
+🔗 https://student-management-frontend-zqxd.onrender.com
 
 
 ## Backend API
