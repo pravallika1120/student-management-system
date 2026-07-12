@@ -39,7 +39,11 @@ function Login() {
         "role",
         response.data.role
       );
-
+      
+      localStorage.setItem(
+        "name",
+      response.data.name
+      );
 
       alert("Login Successful");
 
