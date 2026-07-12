@@ -63,85 +63,55 @@ const registerUser = async(req,res)=>{
 
 
 // LOGIN
+const loginUser = async (req, res) => {
 
-const loginUser = async(req,res)=>{
+    try {
 
-
-    try{
-
-
-        const {
-            email,
-            password,
-            role
-        } = req.body;
-
+        const { email, password, role } = req.body;
 
 
         const user = await User.findOne({
-
             email,
             role
+        });
+
+
+        if (!user) {
+            return res.status(401).json({
+                message: "Invalid credentials"
+            });
+        }
+
+
+        if (user.password !== password) {
+            return res.status(401).json({
+                message: "Invalid password"
+            });
+        }
+
+
+        res.status(200).json({
+
+            message: "Login successful",
+
+            name: user.name,
+
+            email: user.email,
+
+            role: user.role
 
         });
 
 
-
-        if(!user){
-
-            return res.status(401).json({
-
-                message:"Invalid credentials"
-
-            });
-
-        }
-
-
-
-        if(user.password !== password){
-
-            return res.status(401).json({
-
-                message:"Invalid password"
-
-            });
-
-        }
-
-
-
-        res.json({
-
-            message:"Login successful",
-
-            role:user.role,
-
-            email:user.email,
-
-            name:user.name
-
-        });
-
-
-    }
-    catch(error){
-
+    } catch(error){
 
         res.status(500).json({
-
             message:error.message
-
         });
-
 
     }
 
-
 };
-
-
-
 module.exports={
 
     registerUser,
