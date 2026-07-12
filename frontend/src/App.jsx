@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Login from "./pages/Login";
-import Students from "./pages/StudentList.jsx";
+import Dashboard from "./pages/Dashboard";
+import StudentList from "./pages/StudentList";
 
 
 function App(){
@@ -11,9 +13,24 @@ return (
 
 <Routes>
 
-<Route path="/" element={<Login />} />
 
-<Route path="/students" element={<Students />} />
+<Route 
+path="/" 
+element={<Login />} 
+/>
+
+
+<Route 
+path="/dashboard" 
+element={<Dashboard />} 
+/>
+
+
+<Route 
+path="/students" 
+element={<StudentList />} 
+/>
+
 
 </Routes>
 
@@ -22,5 +39,6 @@ return (
 );
 
 }
+
 
 export default App;

@@ -24,7 +24,7 @@ function Login() {
         role
       });
 
-
+      console.log("API RESPONSE:", response.data);
       console.log("LOGIN RESPONSE:", response.data);
 
 
