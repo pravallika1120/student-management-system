@@ -3,40 +3,48 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import StudentList from "./pages/StudentList";
-
-
+import EditStudent from "./pages/EditStudent";
+import AddStudent from "./pages/AddStudent";
 function App(){
 
-return (
+  return (
 
-<BrowserRouter>
+    <BrowserRouter>
 
-<Routes>
+      <Routes>
 
-
-<Route 
-path="/" 
-element={<Login />} 
-/>
-
-
-<Route 
-path="/dashboard" 
-element={<Dashboard />} 
-/>
+        <Route 
+          path="/" 
+          element={<Login />} 
+        />
 
 
-<Route 
-path="/students" 
-element={<StudentList />} 
-/>
+        <Route 
+          path="/dashboard" 
+          element={<Dashboard />} 
+        />
 
 
-</Routes>
+        <Route 
+          path="/students" 
+          element={<StudentList />} 
+        />
 
-</BrowserRouter>
 
-);
+        <Route 
+          path="/students/:id" 
+          element={<EditStudent />} 
+        />
+
+        <Route
+          path="/add-student"
+          element={<AddStudent />}
+        />
+      </Routes>
+
+    </BrowserRouter>
+
+  );
 
 }
 

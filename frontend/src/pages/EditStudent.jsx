@@ -49,7 +49,7 @@ function EditStudent() {
 
       alert("Student Updated Successfully!");
 
-      navigate("/student-list");
+      navigate("/students");
 
     } catch (error) {
 

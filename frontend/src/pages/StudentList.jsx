@@ -1,22 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api/studentApi";
-function Students(){
-
-return (
-
-<div>
-
-<h1>Student Information</h1>
-
-<p>Welcome to Student Management System</p>
-
-</div>
-
-);
-
-}
-
 function StudentList() {
 
   const [students, setStudents] = useState([]);
