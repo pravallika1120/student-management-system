@@ -24,9 +24,7 @@ function Login() {
         role
       });
 
-      console.log("API RESPONSE:", response.data);
-      console.log("LOGIN RESPONSE:", response.data);
-
+      console.log("API RESPONSE:", response.data);     
 
       // Store token
       localStorage.setItem(
@@ -43,21 +41,6 @@ function Login() {
 
 
       alert("Login Successful");
-
-
-      // Redirect based on role
-
-      if(response.data.role === "admin") {
-
-        navigate("/dashboard");
-
-      } 
-      else {
-
-        navigate("/students");
-
-      }
-
 
     } catch(error) {
 
