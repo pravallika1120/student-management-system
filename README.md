@@ -306,9 +306,9 @@ Displays user information.
 
 # 👩‍💻 Developed By
 
-**Gangi Satyanarayana,
-Pravallika Uppalapati, 
+**Pravallika Uppalapati, 
 Sai Prasanna Kampi,
+Gangi Satyanarayana,
 Haripriya Uppicherla,
 Mohan Aakula**
 
