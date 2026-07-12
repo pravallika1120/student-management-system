@@ -1,46 +1,47 @@
 # 🎓 Student Management System
 
 A full-stack web application developed to manage student information efficiently.  
-The system provides authentication, dashboard view, student CRUD operations, and profile management.
+The system provides user authentication, student registration, and student record management features with a modern React frontend, Node.js backend, and MongoDB database.
+
+---
+
+# 🚀 Live Demo
+
+## Frontend
+
+🔗 https://your-frontend-render-url.onrender.com
+
+
+## Backend API
+
+🔗 https://student-management-system-1-z46v.onrender.com
 
 ---
 
 # 📌 Project Overview
 
-The Student Management System is designed to simplify student record management.
+The **Student Management System** is a web-based application designed to simplify the management of student records.
 
-The application allows administrators to:
+The application allows users to register, login, and access the system based on their roles.
 
-- Login into the system
-- View dashboard statistics
-- Add new student details
-- View student records
-- Update student information
-- Delete student records
-- View user profile
+The system supports two types of users:
 
-The project follows a client-server architecture using React.js for frontend and Node.js with Express.js for backend.
+- 👨‍💼 Admin
+- 👨‍🎓 Student
+
+Admin users can manage student information, while students can register and login to access their dashboard.
 
 ---
 
-# 🚀 Features
+# ✨ Features
 
 ## 🔐 Authentication Module
 
-- User login system
-- Role selection (Admin / Student)
-- JWT based authentication
-- Secure API communication
-
-
-## 📊 Dashboard Module
-
-Displays:
-
-- Total students
-- Departments
-- Attendance
-- CGPA
+- User Registration
+- User Login
+- Role-based authentication
+- User-specific dashboard
+- Welcome message with logged-in user's name
 
 
 ## 👨‍🎓 Student Management Module
@@ -48,54 +49,67 @@ Displays:
 Admin can:
 
 - Add student details
-- View student list
-- Edit student information
+- View student records
+- Update student information
 - Delete student records
 
 
-## 👤 Profile Module
+Student information includes:
 
-Displays:
+- Student ID
+- Name
+- Email
+- Phone Number
+- Department
+- Year
+- CGPA
 
-- User email
-- User role
-- Account status
 
+## 📊 Dashboard Module
+
+Features:
+
+- User welcome message
+- Navigation sidebar
+- Dashboard cards
+- Student information access
 
 ---
 
-# 🛠️ Technologies Used
-
+# 🛠️ Technology Stack
 
 ## Frontend
 
 - React.js
 - Vite
-- Axios
 - React Router DOM
+- Axios
 - Bootstrap
+- CSS
 
 
 ## Backend
 
 - Node.js
 - Express.js
-- MongoDB
+- REST API
+
+
+## Database
+
+- MongoDB Atlas
 - Mongoose
-- JWT Authentication
 
 
 ## Deployment
 
-- AWS EC2
-- Docker
-- Nginx
-
+- GitHub
+- Render
+- MongoDB Atlas
 
 ---
 
 # 📂 Project Structure
-
 
 ```
 student-management-system
@@ -103,220 +117,290 @@ student-management-system
 │
 ├── backend
 │
-│── config
-│    └── db.js
-│
-│── controllers
-│    └── studentController.js
-│
-│── models
-│    └── Student.js
-│
-│── routes
-│    ├── studentRoutes.js
-│    └── authRoutes.js
-│
-│── server.js
-│
-│
-├── frontend
-│
-│── src
-│
-│   ├── api
-│   │    └── studentApi.js
+│   ├── config
+│   │   └── db.js
 │   │
-│   ├── components
-│   │    ├── Navbar.jsx
-│   │    ├── Sidebar.jsx
-│   │    └── DashboardCard.jsx
+│   ├── controllers
+│   │   ├── authController.js
+│   │   └── studentController.js
 │   │
-│   ├── pages
-│   │    ├── Login.jsx
-│   │    ├── Dashboard.jsx
-│   │    ├── StudentList.jsx
-│   │    ├── AddStudent.jsx
-│   │    ├── EditStudent.jsx
-│   │    └── Profile.jsx
+│   ├── models
+│   │   ├── User.js
+│   │   └── Student.js
 │   │
-│   └── App.jsx
+│   ├── routes
+│   │   ├── authRoutes.js
+│   │   └── studentRoutes.js
+│   │
+│   ├── server.js
+│   └── package.json
 │
-└── docker-compose.yml
+│
+└── frontend
+    │
+    ├── src
+    │
+    ├── api
+    │   └── studentApi.js
+    │
+    ├── components
+    │   ├── Navbar.jsx
+    │   ├── Sidebar.jsx
+    │   └── DashboardCard.jsx
+    │
+    ├── pages
+    │   ├── Login.jsx
+    │   ├── Register.jsx
+    │   ├── Dashboard.jsx
+    │   ├── StudentList.jsx
+    │   ├── AddStudent.jsx
+    │   ├── EditStudent.jsx
+    │   └── Profile.jsx
+    │
+    ├── App.jsx
+    └── package.json
 
 ```
 
 ---
 
-# 🔄 Application Workflow
+# ⚙️ Installation and Setup
 
+## Clone Repository
 
-```
-User
- |
- |
-React Frontend
- |
- |
-Axios API Request
- |
- |
-Express Backend
- |
- |
-MongoDB Database
-
+```bash
+git clone https://github.com/pravallika1120/student-management-system.git
 ```
 
+Go to project directory:
+
+```bash
+cd student-management-system
+```
+
+---
+
+# Backend Setup
+
+Navigate to backend:
+
+```bash
+cd backend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create `.env` file:
+
+```
+PORT=5000
+
+MONGODB_URI=your_mongodb_connection_string
+
+JWT_SECRET=your_secret_key
+```
+
+Start backend:
+
+```bash
+npm start
+```
+
+Backend runs on:
+
+```
+http://localhost:5000
+```
+
+---
+
+# Frontend Setup
+
+Navigate to frontend:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start frontend:
+
+```bash
+npm run dev
+```
+
+Frontend runs on:
+
+```
+http://localhost:5173
+```
 
 ---
 
 # 🔗 API Endpoints
 
+## Authentication APIs
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /auth/login | User Login |
-| GET | /students | Get all students |
-| POST | /students | Add student |
-| GET | /students/:id | Get student details |
-| PUT | /students/:id | Update student |
-| DELETE | /students/:id | Delete student |
+### Register User
 
+```
+POST /auth/register
+```
 
----
-
-# 🗄️ Database Schema
-
-
-Student Collection:
-
+Example:
 
 ```json
 {
- "studentId":"1001",
- "name":"Pravallika",
- "email":"pravallika@gmail.com",
- "phone":"7859388359",
- "department":"CSIT",
- "year":3,
- "cgpa":9
+"name":"Mohan",
+"email":"mohan@gmail.com",
+"password":"Mohan123",
+"role":"student"
 }
-
 ```
 
+
+### Login User
+
+```
+POST /auth/login
+```
+
+Example:
+
+```json
+{
+"email":"mohan@gmail.com",
+"password":"Mohan123",
+"role":"student"
+}
+```
 
 ---
 
-# 🐳 Docker Implementation
+# Student APIs
 
-
-Frontend runs inside Docker container:
-
-```
-React Application
-Port: 5173
-```
-
-
-Backend runs inside Docker container:
+## Get All Students
 
 ```
-Node Express Server
-Port: 5000
+GET /students
 ```
-
-
-Run project:
-
-
-```
-docker compose up --build
-
-```
-
-
----
-
-# ☁️ Deployment
-
-The project was deployed on AWS EC2 instance.
-
-Deployment steps:
-
-1. Created EC2 instance
-2. Installed Docker
-3. Containerized frontend and backend
-4. Configured Nginx reverse proxy
-5. Accessed application through EC2 public IP
-
-
----
-
-# 📸 Application Screenshots
-
-
-## Login Page
-
-User authentication page.
-
-
-## Dashboard
-
-Displays system overview.
-
-
-## Student List
-
-Shows all student records.
 
 
 ## Add Student
 
-Allows admin to add new students.
+```
+POST /students
+```
 
 
-## Profile
+## Update Student
 
-Displays user information.
+```
+PUT /students/:id
+```
 
+
+## Delete Student
+
+```
+DELETE /students/:id
+```
 
 ---
 
-# 🎯 Advantages
+# 🗄️ Database Structure
 
-- Easy student record management
-- Reduces manual work
-- Centralized database storage
-- User-friendly interface
-- Fast data access
+## Users Collection
 
+Stores:
+
+- Name
+- Email
+- Password
+- Role
+
+
+## Students Collection
+
+Stores:
+
+- Student ID
+- Name
+- Email
+- Phone
+- Department
+- Year
+- CGPA
+
+---
+
+# 🌐 Deployment
+
+## Backend Deployment
+
+Platform:
+
+**Render Web Service**
+
+Backend URL:
+
+```
+https://student-management-system-1-z46v.onrender.com
+```
+
+
+## Frontend Deployment
+
+Platform:
+
+**Render Static Site**
+
+---
+
+# 📸 Screenshots
+
+Add project screenshots:
+
+- Login Page
+- Registration Page
+- Dashboard
+- Student List
+- Add Student Page
 
 ---
 
 # 🔮 Future Enhancements
 
+- Password encryption using bcrypt
+- JWT authentication improvement
 - Attendance management
-- Marks management
-- Search and filtering
+- Student performance analytics
 - Email notifications
-- Advanced analytics dashboard
-
+- Profile management
 
 ---
 
 # 👩‍💻 Developed By
 
-**Pravallika Uppalapati, 
-Sai Prasanna Kampi,
-Gangi Satyanarayana,
-Haripriya Uppicherla,
-Mohan Aakula**
+**Pravallika Uppalapati**  
+**Sai Prasanna Kampi**  
+**Gangi Satyanarayana**  
+**Haripriya Uppicherla**  
+**Mohan Aakula**
 
-B.Tech 
+### B.Tech Students
 
 ---
 
-# 📌 Conclusion
+# 📄 License
 
-The Student Management System provides an efficient solution for managing student information digitally.  
-It demonstrates full-stack development using modern web technologies with cloud deployment.
+This project is developed for educational purposes.
