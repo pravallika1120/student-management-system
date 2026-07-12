@@ -3,8 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import StudentList from "./pages/StudentList";
-import EditStudent from "./pages/EditStudent";
 import AddStudent from "./pages/AddStudent";
+import EditStudent from "./pages/EditStudent";
+
+
 function App(){
 
   return (
@@ -18,28 +20,26 @@ function App(){
           element={<Login />} 
         />
 
-
         <Route 
           path="/dashboard" 
           element={<Dashboard />} 
         />
-
 
         <Route 
           path="/students" 
           element={<StudentList />} 
         />
 
-
-        <Route 
-          path="/students/:id" 
-          element={<EditStudent />} 
-        />
-
         <Route
           path="/add-student"
           element={<AddStudent />}
         />
+
+        <Route
+          path="/edit-student/:id"
+          element={<EditStudent />}
+        />
+
       </Routes>
 
     </BrowserRouter>
