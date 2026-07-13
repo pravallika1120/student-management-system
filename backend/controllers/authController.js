@@ -179,7 +179,8 @@ const loginUser = async(req,res)=>{
 
         }
 
-
+        console.log("ENTERED PASSWORD:", password);
+        console.log("DATABASE HASH:", user.password);
 
 
         // Compare password
@@ -192,7 +193,8 @@ const loginUser = async(req,res)=>{
 
         );
 
-
+        
+    console.log("PASSWORD RESULT:", isMatch);
 
         console.log(
             "PASSWORD MATCH:",
