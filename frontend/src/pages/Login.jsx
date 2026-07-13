@@ -53,19 +53,11 @@ function Login() {
 
     } catch(error) {
 
+console.log("FULL ERROR:", error);
 
-      console.log(
-        "LOGIN ERROR:",
-        error.response
-      );
+alert("Frontend Error: " + error.message);
 
-
-      alert(
-        error.response?.data?.message ||
-        "Login Failed"
-      );
-
-    }
+}
 
   };
 
