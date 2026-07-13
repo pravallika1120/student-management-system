@@ -27,12 +27,6 @@ function Login() {
 
       console.log("API RESPONSE:", response.data);     
 
-      // Store token
-      localStorage.setItem(
-        "token",
-        response.data.token
-      );
-
         // Store user details
         
         localStorage.setItem(
