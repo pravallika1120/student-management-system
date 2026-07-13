@@ -408,6 +408,13 @@ Platform:
 - Email notifications
 - Profile management
 
+# 👨‍🏫 Under the Guidance of
+
+**Mentor 1: Mrs. Bethala Sumana**  
+
+**Mentor 2: Mr. Juttuka Lovababu**
+
+
 ---
 
 # 👩‍💻 Developed By
@@ -418,12 +425,8 @@ Platform:
 **Haripriya Uppicherla**  
 **Mohan Aakula**
 
-### B.Tech Students
+B.Tech Students
 
-## Under the Guidance of
-
-**Mentor 1: Mrs Bethala Sumana**
-**Mentor 2: Mr Juttuka Lovababu**
 ---
 
 # 📄 License
