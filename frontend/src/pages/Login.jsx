@@ -33,17 +33,25 @@ function Login() {
         response.data.token
       );
 
-
-      // Store role
-      localStorage.setItem(
-        "role",
-        response.data.role
-      );
-      
-      localStorage.setItem(
-        "name",
-      response.data.name
-      );
+        // Store user details
+        
+        localStorage.setItem(
+          "role",
+          response.data.user.role
+        );
+        
+        
+        localStorage.setItem(
+          "name",
+          response.data.user.name
+        );
+        
+        
+        localStorage.setItem(
+          "email",
+          response.data.user.email
+        );
+     
 
       alert("Login Successful");
 
