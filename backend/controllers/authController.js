@@ -97,14 +97,13 @@ const loginUser = async (req, res) => {
 
 
 
-        const user = await User.findOne({
-            email
-        });
+            const user = await User.findOne({
+    email
+});
 
-
-
-        console.log("USER FOUND:", user);
-
+console.log("LOGIN EMAIL:", email);
+console.log("LOGIN ROLE FROM FRONTEND:", role);
+console.log("USER FROM DATABASE:", user);
 
 
         if (!user) {
@@ -115,15 +114,19 @@ const loginUser = async (req, res) => {
 
             });
 
-        }
-        console.log("ROLE FROM FRONTEND:", role);
-        console.log("ROLE FROM DATABASE:", user.role);
-        
+        } 
 
-        if (user.role.toLowerCase() !== role.toLowerCase()) {
-            return res.status(401).json({
+ if(user.role !== role){
 
-                message: "Role mismatch"
+    console.log("ROLE MISMATCH");
+    console.log("DATABASE ROLE:", user.role);
+    console.log("FRONTEND ROLE:", role);
+
+    return res.status(401).json({
+        message:"Role mismatch"
+    });
+
+}
 
             });
 
