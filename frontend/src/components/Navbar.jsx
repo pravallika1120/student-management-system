@@ -1,24 +1,27 @@
+import {useEffect,useState} from "react";
+
+
 function Navbar(){
 
-const name = localStorage.getItem("name");
-const role = localStorage.getItem("role");
+const [name,setName]=useState("");
+
+
+useEffect(()=>{
+
+const username =
+localStorage.getItem("name");
+
+setName(username);
+
+},[]);
+
 
 
 return(
 
-<nav className="navbar navbar-primary bg-primary text-white p-3">
-
-<h3>
-🎓 Student Management System
-</h3>
-
-
 <h4>
-Welcome, {role === "admin" ? "Admin" : name}
+Welcome, {name}
 </h4>
-
-
-</nav>
 
 );
 
