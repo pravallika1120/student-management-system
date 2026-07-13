@@ -2,9 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 
-// =====================
-// REGISTER USER
-// =====================
+// REGISTER
 
 const registerUser = async (req, res) => {
 
@@ -18,9 +16,6 @@ const registerUser = async (req, res) => {
         } = req.body;
 
 
-
-        // Check existing user
-
         const existingUser = await User.findOne({
             email
         });
@@ -29,25 +24,17 @@ const registerUser = async (req, res) => {
         if (existingUser) {
 
             return res.status(400).json({
-
                 message: "User already exists"
-
             });
 
         }
 
-
-
-        // Encrypt password
 
         const hashedPassword = await bcrypt.hash(
             password,
             10
         );
 
-
-
-        // Create user
 
         const user = new User({
 
@@ -62,9 +49,7 @@ const registerUser = async (req, res) => {
         });
 
 
-
         await user.save();
-
 
 
         res.status(201).json({
@@ -74,18 +59,13 @@ const registerUser = async (req, res) => {
         });
 
 
-
-    }
-
-    catch(error) {
-
+    } catch (error) {
 
         res.status(500).json({
 
             message: error.message
 
         });
-
 
     }
 
@@ -94,110 +74,115 @@ const registerUser = async (req, res) => {
 
 
 
-// =====================
-// LOGIN USER
-// =====================
+// LOGIN
 
-const loginUser = async (req,res)=>{
+const loginUser = async (req, res) => {
 
 
     try {
 
 
         const {
-
             email,
-
+            password,
             role
-
-
         } = req.body;
 
 
 
-        // Find user by email and role
+        console.log("LOGIN REQUEST:", {
+            email,
+            role
+        });
 
-          const user = await User.findOne({
-                email
+
+
+        const user = await User.findOne({
+            email
+        });
+
+
+
+        console.log("USER FOUND:", user);
+
+
+
+        if (!user) {
+
+            return res.status(401).json({
+
+                message: "User not found"
+
             });
-            
-            
-            console.log("LOGIN EMAIL:", email);
-            console.log("LOGIN ROLE:", role);
-            console.log("USER FROM DB:", user);
-            
-            
-            if(!user){
-            
-                return res.status(401).json({
-                    message:"User not found"
-                });
-            
-            }
-            
-            
-            if(user.role !== role){
-            
-                return res.status(401).json({
-                    message:"Role mismatch"
-                });
-            
-            }
-            
-            
-            
-            const isMatch = await bcrypt.compare(
-                password,
-                user.password
-            );
-            
-            
-            console.log("PASSWORD MATCH:", isMatch);
-            
-            
-            
-            if(!isMatch){
-            
-                return res.status(401).json({
-                    message:"Invalid password"
-                });
-            
-            }
 
         }
 
 
 
-        // Login success
+        if (user.role !== role) {
+
+            return res.status(401).json({
+
+                message: "Role mismatch"
+
+            });
+
+        }
+
+
+
+        const isMatch = await bcrypt.compare(
+
+            password,
+
+            user.password
+
+        );
+
+
+
+        console.log(
+            "PASSWORD MATCH:",
+            isMatch
+        );
+
+
+
+        if (!isMatch) {
+
+            return res.status(401).json({
+
+                message: "Invalid password"
+
+            });
+
+        }
+
+
 
         res.status(200).json({
 
+            message: "Login successful",
 
-            message:"Login successful",
+            name: user.name,
 
+            email: user.email,
 
-            name:user.name,
-
-
-            email:user.email,
-
-
-            role:user.role
-
+            role: user.role
 
         });
 
 
 
-    }
+    } catch(error) {
 
 
-    catch(error){
+        console.log(error);
 
 
         res.status(500).json({
 
-            message:error.message
+            message: error.message
 
         });
 
