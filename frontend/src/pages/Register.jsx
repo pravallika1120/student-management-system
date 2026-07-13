@@ -155,7 +155,11 @@ onChange={handleChange}
 
 >
 
+<option value ="admin">
+  
+Admin
 
+</option>
 <option value="student">
 
 Student
