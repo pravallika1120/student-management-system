@@ -116,8 +116,9 @@ const loginUser = async (req, res) => {
             });
 
         }
-
-
+        console.log("ROLE FROM FRONTEND:", role);
+        console.log("ROLE FROM DATABASE:", user.role);
+        
 
         if (user.role !== role) {
 
