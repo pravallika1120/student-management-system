@@ -208,22 +208,6 @@ if(!isMatch){
             isMatch
         );
 
-
-
-        if(!isMatch){
-
-
-            return res.status(401).json({
-
-                message:"Invalid password"
-
-            });
-
-
-        }
-
-
-
         // Successful login
 
         res.status(200).json({
