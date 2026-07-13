@@ -117,51 +117,52 @@ const loginUser = async (req,res)=>{
 
         // Find user by email and role
 
-        const user = await User.findOne({
-
-            email,
-
-            role
-
-        });
-
-
-
-        if(!user){
-
-
-            return res.status(401).json({
-
-                message:"Invalid credentials"
-
+          const user = await User.findOne({
+                email
             });
-
-
-        }
-
-
-
-        // Compare encrypted password
-
-        const isMatch = await bcrypt.compare(
-
-            password,
-
-            user.password
-
-        );
-
-
-
-        if(!isMatch){
-
-
-            return res.status(401).json({
-
-                message:"Invalid credentials"
-
-            });
-
+            
+            
+            console.log("LOGIN EMAIL:", email);
+            console.log("LOGIN ROLE:", role);
+            console.log("USER FROM DB:", user);
+            
+            
+            if(!user){
+            
+                return res.status(401).json({
+                    message:"User not found"
+                });
+            
+            }
+            
+            
+            if(user.role !== role){
+            
+                return res.status(401).json({
+                    message:"Role mismatch"
+                });
+            
+            }
+            
+            
+            
+            const isMatch = await bcrypt.compare(
+                password,
+                user.password
+            );
+            
+            
+            console.log("PASSWORD MATCH:", isMatch);
+            
+            
+            
+            if(!isMatch){
+            
+                return res.status(401).json({
+                    message:"Invalid password"
+                });
+            
+            }
 
         }
 
