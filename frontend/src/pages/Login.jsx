@@ -37,19 +37,19 @@ function Login() {
         
         localStorage.setItem(
           "role",
-          response.data.user.role
+          response.data.role
         );
         
         
         localStorage.setItem(
           "name",
-          response.data.user.name
+          response.data.name
         );
         
         
         localStorage.setItem(
           "email",
-          response.data.user.email
+          response.data.email
         );
      
 
