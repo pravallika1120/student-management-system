@@ -422,8 +422,8 @@ Platform:
 
 ## Under the Guidance of
 
-Mentor 1: Mrs Bethala Sumana 
-Mentor 2: Mr Juttuka Lovababu
+**Mentor 1: Mrs Bethala Sumana**
+**Mentor 2: Mr Juttuka Lovababu**
 ---
 
 # 📄 License
