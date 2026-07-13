@@ -144,8 +144,8 @@ function Login() {
               onChange={()=>setRole("admin")}
 
             />
-
-            {" "}Admin
+            
+            Admin
 
 
           </label>
@@ -166,7 +166,7 @@ function Login() {
 
             />
 
-            {" "}Student
+            Student
 
 
           </label>
