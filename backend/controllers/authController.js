@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const bcrypt = require("bcrypt");
 
 
 // REGISTER
@@ -63,11 +64,15 @@ const registerUser = async(req,res)=>{
 
 
 // LOGIN
-const loginUser = async (req, res) => {
+const loginUser = async(req,res)=>{
 
-    try {
+    try{
 
-        const { email, password, role } = req.body;
+        const {
+            email,
+            password,
+            role
+        } = req.body;
 
 
         const user = await User.findOne({
@@ -76,36 +81,45 @@ const loginUser = async (req, res) => {
         });
 
 
-        if (!user) {
+        if(!user){
+
             return res.status(401).json({
-                message: "Invalid credentials"
+                message:"Invalid credentials"
             });
+
         }
 
 
-        if (user.password !== password) {
+        const isMatch = await bcrypt.compare(
+            password,
+            user.password
+        );
+
+
+        if(!isMatch){
+
             return res.status(401).json({
-                message: "Invalid password"
+                message:"Invalid credentials"
             });
+
         }
 
 
         res.status(200).json({
 
-            message: "Login successful",
-            user:{
-                
-            name: user.name,
+            message:"Login successful",
 
-            email: user.email,
+            name:user.name,
 
-            role: user.role
-            }
+            email:user.email,
+
+            role:user.role
 
         });
 
 
-    } catch(error){
+    }
+    catch(error){
 
         res.status(500).json({
             message:error.message
