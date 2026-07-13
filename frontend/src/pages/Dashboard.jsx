@@ -14,11 +14,13 @@ function Dashboard() {
             <Sidebar />
           </div>
 
-          <div className="col-md-10 p-4">
+        <div className="col-md-10 p-4">
 
-            <h2>Dashboard</h2>
+    <h2>
+      Welcome, {localStorage.getItem("name")}
+    </h2>
 
-            <div className="row mt-4">
+    <div className="row mt-4">
 
               <div className="col-md-3">
                 <DashboardCard title="Students" value="250" />
