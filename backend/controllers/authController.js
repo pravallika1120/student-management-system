@@ -120,8 +120,7 @@ const loginUser = async (req, res) => {
         console.log("ROLE FROM DATABASE:", user.role);
         
 
-        if (user.role !== role) {
-
+        if (user.role.toLowerCase() !== role.toLowerCase()) {
             return res.status(401).json({
 
                 message: "Role mismatch"
