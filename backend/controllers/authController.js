@@ -135,7 +135,7 @@ const loginUser = async(req,res)=>{
         // Find user
 
         const user = await User.findOne({
-            email
+            email:email.trim()
         });
 
 
