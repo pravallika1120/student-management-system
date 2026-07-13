@@ -7,7 +7,6 @@ function Register(){
 
 const navigate = useNavigate();
 
-
 const [user,setUser] = useState({
 
 name:"",
