@@ -108,8 +108,6 @@ const loginUser = async (req,res)=>{
 
             email,
 
-            password,
-
             role
 
 
