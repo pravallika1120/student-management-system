@@ -185,13 +185,20 @@ const loginUser = async(req,res)=>{
 
         // Compare password
 
-        const isMatch = await bcrypt.compare(
+        // Compare password
 
-            password,
+const isMatch = password === user.password;
 
-            user.password
 
-        );
+if(!isMatch){
+
+    return res.status(401).json({
+
+        message:"Invalid password"
+
+    });
+
+}
 
         
     console.log("PASSWORD RESULT:", isMatch);
