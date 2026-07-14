@@ -399,6 +399,7 @@ Platform:
 
 ---
 
+
 # 🔮 Future Enhancements
 
 - Password encryption using bcrypt
